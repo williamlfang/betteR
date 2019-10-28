@@ -2,8 +2,9 @@
     * [启](README.md)
 
 ## 关于 R 的进化论
-    * [Tidyverse](modern/tidyverse.md)
+
     * [data.table](modern/data_table.md)
+    * [Tidyverse](modern/tidyverse.md)
     * [R vs Python](modern/r_vs_python.md)
 
 ## 数据科学
