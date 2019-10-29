@@ -24,25 +24,39 @@ msg() {
 
 
 ## -------------------------------------------
-msg "Pulling down from ${SOURCE}"
-git pull
-## -------------------------------------------
+## 切换到 master
+git checkout master
+msg "Pulling down from ${SOURCE}<master>"
+#从github更新原文件并生成静态页面
+# git pull
 
-
-## -------------------------------------------
 msg "Rebuild gitbook"
 ## 安装插件
 # /opt/node-v12.10.0-linux-x64/bin/gitbook install ./
 ## 建立静态网页
 /opt/node-v12.10.0-linux-x64/bin/gitbook build
-## -------------------------------------------
-
-
-## -------------------------------------------
-msg "Pushing new info to Github"
 
 git add -A 
-git commit -m "$MESSAGE"
-git push
+git commit -m "update master"
+git push origin master
+## -------------------------------------------
 
+
+## -------------------------------------------
+msg "Pushing new info to gh-pages"
+## 创建分支
+# git checkout -b gh-pages
+git checkout gh-pages
+## 同步 master 的 _book 到 gh-pages
+git checkout master -- _book
+
+cp -r _book/* . 
+echo "node_modules
+_book">.gitignore
+
+git add -A 
+git commit -m "update gh-pages"
+git push origin gh-pages
+
+git checkout master
 msg "We've happily done."
