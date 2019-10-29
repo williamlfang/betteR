@@ -12,7 +12,13 @@
 
 为此，大牛 [Dirk Eddelbuettel](http://dirk.eddelbuettel.com/) 决定跳过 `c`，使用其高级版本——`c++` 为 `R` 提供调用底层的接口能力。这就是我们今天需要隆重介绍的主角：`Rcpp`。
 
+<!--  -->
 ## 安装
+直接使用 `CRAN` 安装即可
+
+```r
+install.packages("Rcpp")
+```
 
 ## 小例
 
