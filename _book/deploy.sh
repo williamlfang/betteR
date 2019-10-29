@@ -28,7 +28,7 @@ msg() {
 git checkout master
 msg "Pulling down from ${SOURCE}<master>"
 #从github更新原文件并生成静态页面
-git pull github master
+git pull
 
 msg "Rebuild gitbook"
 ## 安装插件
