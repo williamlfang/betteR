@@ -36,9 +36,6 @@ Gentleman 在新西兰大学共同发起创建。这就决定了 `R` 的天然�
 
     install.packages("Rcpp")
 
-    ## Installing package into '/home/william/R/x86_64-pc-linux-gnu-library/3.6'
-    ## (as 'lib' is unspecified)
-
 完成后，可以使用命令载入软件包
 
     library(Rcpp)
@@ -119,5 +116,33 @@ Gentleman 在新西兰大学共同发起创建。这就决定了 `R` 的天然�
     */
     // =============================================================================
 
-对比
-----
+比如，我经常使用的一个读取文件的函数
+
+    // -----------------------------------------------------------------------------
+    /*
+    - rcpp_readFile(datafile):
+
+    fast reading datafile
+    Ref: https://gist.github.com/hadley/6353939
+    */
+    // [[Rcpp::export]]
+    CharacterVector rcpp_readFile(std::string path) {
+        std::ifstream in(path.c_str());
+        std::string contents;
+        in.seekg(0, std::ios::end);
+        contents.resize(in.tellg());
+        in.seekg(0, std::ios::beg);
+        in.read(&contents[0], contents.size());
+        in.close();
+        return(contents);
+    }
+    // -----------------------------------------------------------------------------
+
+将其保存在 `myRcpp.cpp` 文件后, 使用命令 `sourceCpp`
+编译生成机器码，即可提供给 `R` 直接调用了。其中，通过指定
+`cacheDir = "./tmp/Rcpp"` 把编译完成的 `.so`
+文件保存文件夹，如此一来，如果源文件没有改动，则下次调用该函数时，就不需要重新再进行编译，而是直接调用动态链接库，省去了过程当中的编译环节。
+
+    sourceCpp( "myRcpp.cpp", verbose = TRUE, cacheDir = "./tmp/Rcpp" )
+
+    data <- rcpp_readFile(datafile)
