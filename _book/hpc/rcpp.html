@@ -426,9 +426,6 @@ Gentleman &#x5728;&#x65B0;&#x897F;&#x5170;&#x5927;&#x5B66;&#x5171;&#x540C;&#x53D
 <h3 id="&#x5B89;&#x88C5;&#x8F6F;&#x4EF6;&#x5305;">&#x5B89;&#x88C5;&#x8F6F;&#x4EF6;&#x5305;</h3>
 <p>&#x76F4;&#x63A5;&#x4F7F;&#x7528; <code>CRAN</code> &#x5B89;&#x88C5;&#x5373;&#x53EF;</p>
 <pre><code>install.packages(&quot;Rcpp&quot;)
-
-## Installing package into &apos;/home/william/R/x86_64-pc-linux-gnu-library/3.6&apos;
-## (as &apos;lib&apos; is unspecified)
 </code></pre><p>&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#x8F7D;&#x5165;&#x8F6F;&#x4EF6;&#x5305;</p>
 <pre><code>library(Rcpp)
 </code></pre><h3 id="&#x914D;&#x7F6E;&#x7F16;&#x8BD1;&#x73AF;&#x5883;">&#x914D;&#x7F6E;&#x7F16;&#x8BD1;&#x73AF;&#x5883;</h3>
@@ -497,9 +494,35 @@ RETURN_TYPE FUNCTION_NAME(ARGUMENT_TYPE ARGUMENT){
 
 */
 // =============================================================================
-</code></pre><h2 id="&#x5BF9;&#x6BD4;">&#x5BF9;&#x6BD4;</h2>
-<footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
-2019-10-29 10:52:58
+</code></pre><p>&#x6BD4;&#x5982;&#xFF0C;&#x6211;&#x7ECF;&#x5E38;&#x4F7F;&#x7528;&#x7684;&#x4E00;&#x4E2A;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x7684;&#x51FD;&#x6570;</p>
+<pre><code>// -----------------------------------------------------------------------------
+/*
+- rcpp_readFile(datafile):
+
+fast reading datafile
+Ref: https://gist.github.com/hadley/6353939
+*/
+// [[Rcpp::export]]
+CharacterVector rcpp_readFile(std::string path) {
+    std::ifstream in(path.c_str());
+    std::string contents;
+    in.seekg(0, std::ios::end);
+    contents.resize(in.tellg());
+    in.seekg(0, std::ios::beg);
+    in.read(&amp;contents[0], contents.size());
+    in.close();
+    return(contents);
+}
+// -----------------------------------------------------------------------------
+</code></pre><p>&#x5C06;&#x5176;&#x4FDD;&#x5B58;&#x5728; <code>myRcpp.cpp</code> &#x6587;&#x4EF6;&#x540E;, &#x4F7F;&#x7528;&#x547D;&#x4EE4; <code>sourceCpp</code>
+&#x7F16;&#x8BD1;&#x751F;&#x6210;&#x673A;&#x5668;&#x7801;&#xFF0C;&#x5373;&#x53EF;&#x63D0;&#x4F9B;&#x7ED9; <code>R</code> &#x76F4;&#x63A5;&#x8C03;&#x7528;&#x4E86;&#x3002;&#x5176;&#x4E2D;&#xFF0C;&#x901A;&#x8FC7;&#x6307;&#x5B9A;
+<code>cacheDir = &quot;./tmp/Rcpp&quot;</code> &#x628A;&#x7F16;&#x8BD1;&#x5B8C;&#x6210;&#x7684; <code>.so</code>
+&#x6587;&#x4EF6;&#x4FDD;&#x5B58;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x5982;&#x6B64;&#x4E00;&#x6765;&#xFF0C;&#x5982;&#x679C;&#x6E90;&#x6587;&#x4EF6;&#x6CA1;&#x6709;&#x6539;&#x52A8;&#xFF0C;&#x5219;&#x4E0B;&#x6B21;&#x8C03;&#x7528;&#x8BE5;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x5C31;&#x4E0D;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x518D;&#x8FDB;&#x884C;&#x7F16;&#x8BD1;&#xFF0C;&#x800C;&#x662F;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x52A8;&#x6001;&#x94FE;&#x63A5;&#x5E93;&#xFF0C;&#x7701;&#x53BB;&#x4E86;&#x8FC7;&#x7A0B;&#x5F53;&#x4E2D;&#x7684;&#x7F16;&#x8BD1;&#x73AF;&#x8282;&#x3002;</p>
+<pre><code>sourceCpp( &quot;myRcpp.cpp&quot;, verbose = TRUE, cacheDir = &quot;./tmp/Rcpp&quot; )
+
+data &lt;- rcpp_readFile(datafile)
+</code></pre><footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
+2019-10-29 11:00:44
 </span></footer> <link rel="stylesheet" type="text/css" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css"> <script>     window.klipse_settings = {         selector: ".language-klipse, .lang-eval-clojure",         selector_eval_js: ".lang-eval-js",         selector_eval_python_client: ".lang-eval-python",         selector_eval_php: ".lang-eval-php",         selector_eval_scheme: ".lang-eval-scheme",         selector_eval_ruby: ".lang-eval-ruby",         selector_reagent: ".lang-reagent",        selector_google_charts: ".lang-google-chart",        selector_es2017: ".lang-eval-es2017",        selector_jsx: ".lang-eval-jsx",        selector_transpile_jsx: ".lang-transpile-jsx",        selector_render_jsx: ".lang-render-jsx",        selector_react: ".lang-react",        selector_eval_markdown: ".lang-render-markdown",        selector_eval_lambdaway: ".lang-render-lambdaway",        selector_eval_cpp: ".lang-eval-cpp",        selector_eval_html: ".lang-render-html",        selector_sql: ".lang-eval-sql",        selector_brainfuck: "lang-eval-brainfuck",        selector_js: ".lang-transpile-cljs"    }; </script> <script src="https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js"></script>
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -544,7 +567,7 @@ RETURN_TYPE FUNCTION_NAME(ARGUMENT_TYPE ARGUMENT){
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Rcpp","level":"4.3","depth":1,"next":{"title":"为何","level":"5.1","depth":1,"path":"pkg/why.md","ref":"pkg/why.md","articles":[]},"previous":{"title":"缓存处理","level":"4.2","depth":1,"path":"hpc/memoise.md","ref":"hpc/memoise.md","articles":[]},"dir":"ltr"},"config":{"plugins":["chapter-fold","expandable-chapters-small","expandable-chapters","advanced-emoji","github","splitter","-sharing","sharing-plus","simple-page-toc","copy-code-button","page-toc-button","klipse","pageview-count","popup","tbfed-pagefooter","todo"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"github":{"url":"https://github.com/williamlfang"},"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"todo":{},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":3,"minTocSize":3},"pageview-count":{},"expandable-chapters-small":{},"copy-code-button":{},"klipse":{"myConfigKey":"it's the default value"},"advanced-emoji":{"embedEmojis":false},"sharing":{"douban":true,"google":true,"twitter":true,"weibo":true,"all":["google","twitter","weibo"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"方莲","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"betteR","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"William's Blog":"https://williamlfang.github.io/"}},"gitbook":"*","description":"To be betteR.","extension":null},"file":{"path":"hpc/rcpp.md","mtime":"2019-10-29T02:52:58.852Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T02:53:01.288Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Rcpp","level":"4.3","depth":1,"next":{"title":"为何","level":"5.1","depth":1,"path":"pkg/why.md","ref":"pkg/why.md","articles":[]},"previous":{"title":"缓存处理","level":"4.2","depth":1,"path":"hpc/memoise.md","ref":"hpc/memoise.md","articles":[]},"dir":"ltr"},"config":{"plugins":["chapter-fold","expandable-chapters-small","expandable-chapters","advanced-emoji","github","splitter","-sharing","sharing-plus","simple-page-toc","copy-code-button","page-toc-button","klipse","pageview-count","popup","tbfed-pagefooter","todo"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"github":{"url":"https://github.com/williamlfang"},"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"todo":{},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":3,"minTocSize":3},"pageview-count":{},"expandable-chapters-small":{},"copy-code-button":{},"klipse":{"myConfigKey":"it's the default value"},"advanced-emoji":{"embedEmojis":false},"sharing":{"douban":true,"google":true,"twitter":true,"weibo":true,"all":["google","twitter","weibo"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"方莲","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"betteR","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"William's Blog":"https://williamlfang.github.io/"}},"gitbook":"*","description":"To be betteR.","extension":null},"file":{"path":"hpc/rcpp.md","mtime":"2019-10-29T03:00:44.533Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T03:00:45.519Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
