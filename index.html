@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Introduction · betteR</title>
+        <title>启 · betteR</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -89,6 +89,8 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="modern/tidyverse.md" />
+    
     
 
     </head>
@@ -124,8 +126,6 @@
 
     
         
-        <li class="header">关于 R 的进化论</li>
-        
         
     
         <li class="chapter active" data-level="1.1" data-path="./">
@@ -133,7 +133,53 @@
                 <a href="./">
             
                     
-                    Introduction
+                    启
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">关于 R 的进化论</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="modern/tidyverse.md">
+            
+                <span>
+            
+                    
+                    Tidyverse
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="modern/data_table.html">
+            
+                <a href="modern/data_table.html">
+            
+                    
+                    data.table
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="modern/r_vs_python.md">
+            
+                <span>
+            
+                    
+                    R vs Python
             
                 </a>
             
@@ -148,6 +194,71 @@
         
         
     
+        <li class="chapter " data-level="3.1" data-path="data-science/about.md">
+            
+                <span>
+            
+                    
+                    关于数据科学的科学
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="data-science/a_bird_view.md">
+            
+                <span>
+            
+                    
+                    数据科学鸟瞰图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="data-science/cleaning.md">
+            
+                <span>
+            
+                    
+                    数据清洗
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="data-science/modelling.md">
+            
+                <span>
+            
+                    
+                    数据建模
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="data-science/communication.md">
+            
+                <span>
+            
+                    
+                    数据沟通
+            
+                </a>
+            
+
+            
+        </li>
+    
 
     
         
@@ -155,12 +266,90 @@
         
         
     
+        <li class="chapter " data-level="4.1" data-path="hpc/parallel.html">
+            
+                <a href="hpc/parallel.html">
+            
+                    
+                    并行运算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="hpc/memoise.html">
+            
+                <a href="hpc/memoise.html">
+            
+                    
+                    缓存处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="hpc/rcpp.html">
+            
+                <a href="hpc/rcpp.html">
+            
+                    
+                    Rcpp
+            
+                </a>
+            
+
+            
+        </li>
+    
 
     
         
         <li class="header">开发软件包</li>
         
         
+    
+        <li class="chapter " data-level="5.1" data-path="pkg/why.md">
+            
+                <span>
+            
+                    
+                    为何
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="pkg/how.md">
+            
+                <span>
+            
+                    
+                    如何
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="pkg/github.md">
+            
+                <span>
+            
+                    
+                    github 共享
+            
+                </a>
+            
+
+            
+        </li>
     
 
     
@@ -192,7 +381,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Introduction</a>
+        <a href="." >启</a>
     </h1>
 </div>
 
@@ -257,6 +446,10 @@
             
                 
                 
+                <a href="modern/tidyverse.md" class="navigation navigation-next navigation-unique" aria-label="Next page: Tidyverse">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
             
         
     </div>
@@ -264,7 +457,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"dir":"ltr"},"config":{"plugins":["chapter-fold","expandable-chapters-small","expandable-chapters","advanced-emoji","github","splitter","-sharing","sharing-plus","simple-page-toc","page-toc-button","klipse","pageview-count","popup","tbfed-pagefooter"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"github":{"url":"https://github.com/williamlfang"},"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":3,"minTocSize":3},"pageview-count":{},"expandable-chapters-small":{},"klipse":{"myConfigKey":"it's the default value"},"advanced-emoji":{"embedEmojis":false},"sharing":{"qq":false,"all":["douban","twitter","weibo"],"douban":false,"facebook":false,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":true,"vk":false,"pocket":false,"google":true,"viber":false,"stumbleupon":false,"qzone":true,"linkedin":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"方莲","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"betteR","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"William's Blog":"https://williamlfang.github.io/"}},"gitbook":"*","description":"To be betteR.","extension":null},"file":{"path":"README.md","mtime":"2019-10-28T12:00:26.987Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T01:37:45.261Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"启","level":"1.1","depth":1,"next":{"title":"Tidyverse","level":"2.1","depth":1,"path":"modern/tidyverse.md","ref":"modern/tidyverse.md","articles":[]},"dir":"ltr"},"config":{"plugins":["chapter-fold","expandable-chapters-small","expandable-chapters","advanced-emoji","github","splitter","-sharing","sharing-plus","simple-page-toc","page-toc-button","klipse","pageview-count","popup","tbfed-pagefooter"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"chapter-fold":{},"github":{"url":"https://github.com/williamlfang"},"simple-page-toc":{"maxDepth":3,"skipFirstH1":true},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{"maxTocDepth":3,"minTocSize":3},"pageview-count":{},"expandable-chapters-small":{},"klipse":{"myConfigKey":"it's the default value"},"advanced-emoji":{"embedEmojis":false},"sharing":{"qq":false,"all":["douban","twitter","weibo"],"douban":false,"facebook":false,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":true,"vk":false,"pocket":false,"google":true,"viber":false,"stumbleupon":false,"qzone":true,"linkedin":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"方莲","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"betteR","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"William's Blog":"https://williamlfang.github.io/"}},"gitbook":"*","description":"To be betteR.","extension":null},"file":{"path":"README.md","mtime":"2019-10-28T12:00:26.987Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T01:42:41.752Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
