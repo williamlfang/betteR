@@ -51,25 +51,12 @@
     "pluginsConfig": {
         "github": {"url": "https://github.com/williamlfang"},
         "sharing": {
-                   "douban": false,
-                   "facebook": false,
+                   "douban": true,
                    "google": true,
-                   "hatenaBookmark": false,
-                   "instapaper": false,
-                   "line": false,
-                   "linkedin": false,
-                   "messenger": false,
-                   "pocket": false,
-                   "qq": false,
-                   "qzone": false,
-                   "stumbleupon": false,
-                   "twitter": false,
-                   "viber": false,
-                   "vk": false,
+                   "twitter": true,
                    "weibo": true,
-                   "whatsapp": false,
                    "all": [
-                       "douban", "twitter", "weibo"
+                       "google", "twitter", "weibo"
                    ]
                },
         "simple-page-toc": {

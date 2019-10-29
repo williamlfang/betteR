@@ -48,7 +48,7 @@ msg "Pushing new info to gh-pages"
 # git checkout -b gh-pages
 git checkout gh-pages
 ## 同步 master 的 _book 到 gh-pages
-git checkout masster -- _book
+git checkout master -- _book
 
 cp -r _book/* . 
 echo "node_modules
