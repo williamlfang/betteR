@@ -30,6 +30,9 @@ msg "Pulling down from ${SOURCE}<master>"
 #从github更新原文件并生成静态页面
 # git pull
 
+## 使用 R 制作 md
+Rscript -e 'blogdown::build_dir(dir = ".", force = FALSE, ignore = "[.]Rproj$")'  2>&1 >/dev/null
+
 msg "Rebuild gitbook"
 ## 安装插件
 # /opt/node-v12.10.0-linux-x64/bin/gitbook install ./
