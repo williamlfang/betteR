@@ -2,7 +2,7 @@
 
 > **[info]To be betteR.**
 > 
-> 程序员之我修养。
+> 程序员自我修养。
 > 
 > @williamlfnag
 
