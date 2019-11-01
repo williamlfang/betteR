@@ -1,6 +1,10 @@
 # betteR
 
-> To be betteR.
+> **[info]To be betteR.**
+> 
+> 程序员之我修养。
+> 
+> @williamlfnag
 
 ## 什么是 R
 

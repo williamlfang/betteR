@@ -47,7 +47,8 @@
                 "popup",
                 "tbfed-pagefooter",
                 "todo",
-                "prism", "-highlight"
+                "prism", "-highlight",
+                "alerts"
                 ],
     "pluginsConfig": {
         "github": {"url": "https://github.com/williamlfang"},
